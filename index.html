@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Lab 03</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="container">
+    <h1>ITMD 541 - Lab 03 - Sreedatta Pusala</h1>
+    <h2>Tip Calculator</h2>
+    <form id="tc-form">
+        <label for="bill-total">Bill Total:</label>
+        <input type="text" id="bill-total">
+
+        <label for="tip-percent">Tip:</label>
+        <input type="range" id="tip-percent" min="0" max="100" value="18" step="1">
+
+        <label for="tip-percent-text">Tip Percentage:</label>
+        <input type="text" id="tip-percent-text" value="" disabled>
+
+        <label for="tip-amount">Tip Amount:</label>
+        <input type="text" id="tip-amount" disabled>
+
+        <label for="total-bill-tip">Total Bill with Tip:</label>
+        <input type="text" id="total-bill-tip" disabled>
+
+    </form>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
