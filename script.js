@@ -1,24 +1,24 @@
-var tipCalculatorForm = document.querySelector('#tc-form');
-var billTotalInput = document.querySelector('#bill-total');
-const tipPercentageSlider = document.querySelector('#tip-percent');
-const tipPercentText = document.querySelector('#tip-percent-text');
-var tipAmountInput = document.querySelector('#tip-amount');
-var totalBillInput = document.querySelector('#total-bill-tip');
+document.addEventListener('DOMContentLoaded', (event) => {
+    const billTotal = document.getElementById('bill_total');
+    const tipSlider = document.getElementById('tip_slider');
+    const tipPercentage = document.getElementById('tip_percentage');
+    const tipAmount = document.getElementById('tip_amount');
+    const totalBill = document.getElementById('total_bill');
 
-tipCalculatorForm.addEventListener('input', (event) => {
+    document.getElementById('tip-form').addEventListener('input', function() {
+        let bill = parseFloat(billTotal.value);
+        let tip = parseFloat(tipSlider.value);
 
-  var totBill = parseFloat(billTotalInput.value);
-  var tipPercentage = parseFloat(tipPercentageSlider.value);
+        if (isNaN(bill)) {
+            alert("Please enter a valid number for the bill total.");
+            return;
+        }
 
-  if (isNaN(totBill)) {
-    alert("Please enter a valid number for the Bill Total.");
-    return;
-}
+        let tipValue = bill * (tip / 100);
+        let totalValue = bill + tipValue;
 
-  const tipAmount = totBill * (tipPercentage / 100);
-  const totalBill = totBill + tipAmount;
-
-  tipAmountInput.value = tipAmount.toFixed(2);
-  totalBillInput.value = totalBill.toFixed(2);
-  tipPercentText.value = tipPercentage;
+        tipPercentage.value = `${tip.toFixed(2)}%`;
+        tipAmount.value = `$${tipValue.toFixed(2)}`;
+        totalBill.value = `$${totalValue.toFixed(2)}`;
+    });
 });
